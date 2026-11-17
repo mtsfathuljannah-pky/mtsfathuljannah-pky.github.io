@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTs Fathul Jannah Palangka Raya | Madrasah Islam Berkarakter dan Berilmu</title>
+<meta name="description" content="MTs Fathul Jannah Palangka Raya adalah madrasah tsanawiyah di bawah naungan Pondok Pesantren Busra Chalid, Kalimantan Tengah. Membentuk generasi beriman, berilmu, berakhlak mulia, dan berwawasan teknologi.">
+<meta name="keywords" content="MTs Fathul Jannah, Madrasah Tsanawiyah Palangka Raya, sekolah Islam Palangka Raya, madrasah Kalimantan Tengah">
+<meta name="author" content="MTs Fathul Jannah">
+<meta name="robots" content="index, follow">
+
+<style>
+:root {
+  --green: #126b45;
+  --dark: #08452e;
+  --light: #eaf5ed;
+  --gold: #d6ad50;
+  --text: #26352d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.7;
+}
+
+/* ================= HEADER & NAVBAR ================= */
+header {
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.navbar {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* LOGO MADRASAH */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text h2 {
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #666;
+  margin: 2px 0 0 0;
+  line-height: 1.3;
+}
+
+/* MENU NAVIGASI DESKTOP */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+nav > a,
+.dropbtn {
+  color: #333;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+nav > a:hover,
+.dropbtn:hover,
+.dropdown:hover .dropbtn {
+  color: var(--green);
+}
+
+/* Garis bawah halus saat hover di desktop */
+nav > a::after,
+.dropbtn::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+nav > a:hover::after,
+.dropdown:hover .dropbtn::after {
+  width: 100%;
+}
+
+.dropbtn span {
+  font-size: 11px;
+  transition: transform 0.25s ease;
+}
+
+.dropdown:hover .dropbtn span {
+  transform: rotate(180deg);
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-top: 3px solid var(--gold);
+  border-radius: 0 0 8px 8px;
+  z-index: 200;
+  padding: 8px 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  color: #333;
+  font-size: 13.5px;
+  font-weight: normal;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background: var(--light);
+  color: var(--green);
+  padding-left: 24px;
+  font-weight: bold;
+}
+
+/* TOMBOL HAMBURGER MOBILE */
+.menu-toggle {
+  display: none;
+  background: var(--green);
+  color: white;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--dark);
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(4, 54, 34, 0.92), rgba(4, 54, 34, 0.55)),
+    url('images/gedung-madrasah.jpg') center/cover no-repeat;
+  color: white;
+}
+
+.hero-content {
+  max-width: 1150px;
+  margin: auto;
+  padding: 70px 25px;
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: 43px;
+  max-width: 650px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 650px;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--gold);
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.25s ease;
+}
+
+.btn:hover {
+  background: #e3bc63;
+}
+
+/* ================= SECTION ================= */
+section {
+  padding: 70px 20px;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  color: var(--green);
+  font-size: 30px;
+}
+
+.section-title p {
+  color: #777;
+}
+
+/* PROFIL */
+.profile {
+  background: var(--light);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.profile-text h2 {
+  color: var(--green);
+  font-size: 29px;
+  margin-bottom: 15px;
+}
+
+/* BERITA */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.news-card {
+  border-radius: 9px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 20px;
+}
+
+.news-date {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.news-content h3 {
+  font-size: 17px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.news-content a {
+  color: var(--green);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* KEUNGGULAN */
+.features {
+  background: var(--light);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature {
+  text-align: center;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 10px;
+}
+
+.feature .icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.feature h3 {
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+/* QUOTE */
+.quote {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 65px 20px;
+}
+
+.quote blockquote {
+  max-width: 850px;
+  margin: auto;
+  font-size: 19px;
+  font-style: italic;
+}
+
+/* FOOTER */
+footer {
+  background: #082f22;
+  color: white;
+  padding: 50px 20px 20px;
+}
+
+.footer-grid {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+footer h3 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+footer a {
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  margin: 7px 0;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 35px;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (min-width: 851px) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+@media (max-width: 850px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px 20px 25px;
+    gap: 6px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    border-top: 1px solid #eee;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav > a,
+  .dropbtn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 10px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  nav > a::after,
+  .dropbtn::after {
+    display: none;
+  }
+
+  .dropdown {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    min-width: 100%;
+    box-shadow: none;
+    border-top: none;
+    border-left: 3px solid var(--gold);
+    background: var(--light);
+    border-radius: 4px;
+    margin: 4px 0 8px 0;
+    padding: 4px 0;
+  }
+
+  .dropdown-content a {
+    padding: 10px 16px;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .dropdown.active .dropbtn span {
+    transform: rotate(180deg);
+  }
+
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero h1 {
+    font-size: 31px;
+  }
+
+  .profile-grid,
+  .news-grid,
+  .feature-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-image img {
+    height: 250px;
+  }
+
+  section {
+    padding: 50px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="navbar">
+
+    <a href="#home" class="logo">
+      <img src="images/logo-madrasah.png" alt="Logo MTs Fathul Jannah">
+      <div class="logo-text">
+        <h2>MTs FATHUL JANNAH</h2>
+        <p>Pondok Pesantren Busra Chalid</p>
+      </div>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Buka menu">☰</button>
+
+    <nav id="navigation">
+      <a href="#home">BERANDA</a>
+
+      <!-- DROPDOWN PROFIL -->
+      <div class="dropdown">
+        <button class="dropbtn" type="button" onclick="toggleDropdown(event)">
+          PROFIL <span>▾</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="#profil-madrasah">Profil Madrasah</a>
+          <a href="#visi-misi">Visi dan Misi</a>
+          <a href="#tenaga-pendidik">Tenaga Pendidik</a>
+          <a href="#sejarah-madrasah">Sejarah Madrasah</a>
+        </div>
+      </div>
+
+      <!-- DROPDOWN KEGIATAN -->
+      <div class="dropdown">
+        <button class="dropbtn" type="button" onclick="toggleDropdown(event)">
+          KEGIATAN <span>▾</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="#pembelajaran">Kegiatan Pembelajaran</a>
+          <a href="#ekstrakurikuler">Ekstrakurikuler</a>
+          <a href="#kerjasama">Kerjasama dengan Pihak Eksternal</a>
+          <a href="#pkkm">PKKM</a>
+        </div>
+      </div>
+
+      <a href="#berita">BERITA</a>
+      <a href="#galeri">GALERI</a>
+      <a href="#kontak">KONTAK</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-content">
+    <h1>Selamat Datang di MTs Fathul Jannah</h1>
+    <p>
+      Madrasah Tsanawiyah Fathul Jannah adalah
+      lembaga pendidikan Islam yang berkomitmen
+      menanamkan nilai-nilai keimanan, akhlak mulia,
+      dan ilmu pengetahuan.
+    </p>
+    <a href="#profil" class="btn">Mengenal Madrasah</a>
+  </div>
+</div>
+
+<!-- PROFIL -->
+<section class="profile" id="profil">
+  <div class="container profile-grid">
+    <div class="profile-image">
+      <img src="images/gedung-madrasah.jpg" alt="MTs Fathul Jannah">
+    </div>
+    <div class="profile-text">
+      <h2>Tentang Madrasah</h2>
+      <p>
+        Madrasah Tsanawiyah Fathul Jannah adalah
+        lembaga pendidikan Islam yang berkomitmen
+        membentuk generasi masa depan yang beriman,
+        berakhlak mulia, cerdas, dan berilmu.
+      </p>
+      <p>
+        Dengan suasana belajar yang nyaman dan
+        tenaga pendidik profesional, kami berupaya
+        menghadirkan pembelajaran modern yang
+        bernafaskan nilai-nilai keislaman.
+      </p>
+      <br>
+      <a href="#kontak" class="btn">Informasi Madrasah</a>
+    </div>
+  </div>
+</section>
+
+<!-- BERITA -->
+<section id="berita">
+  <div class="container">
+    <div class="section-title">
+      <h2>Berita Terbaru Madrasah</h2>
+      <p>Informasi kegiatan dan prestasi MTs Fathul Jannah</p>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-card">
+        <img src="images/berita-1.jpg" alt="Kegiatan anti narkoba">
+        <div class="news-content">
+          <span class="news-date">12 AGUSTUS 2026</span>
+          <h3>Tanamkan Sikap Anti-Narkoba Sejak Dini, MTs Fathul Jannah Gelar Deklarasi</h3>
+          <a href="#">Baca Selengkapnya →</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="images/berita-2.jpg" alt="Perpustakaan keliling">
+        <div class="news-content">
+          <span class="news-date">13 FEBRUARI 2026</span>
+          <h3>Perpustakaan Keliling Hadir di MTs Fathul Jannah, Tumbuhkan Semangat Literasi Siswa</h3>
+          <a href="#">Baca Selengkapnya →</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="images/berita-3.jpg" alt="Kegiatan madrasah">
+        <div class="news-content">
+          <span class="news-date">29 NOVEMBER 2025</span>
+          <h3>Komitmen Pencegahan Bullying, MTs Fathul Jannah Melaksanakan MoU</h3>
+          <a href="#">Baca Selengkapnya →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="features" id="kegiatan">
+  <div class="container">
+    <div class="section-title">
+      <h2>Komitmen Madrasah</h2>
+      <p>Membangun generasi berilmu dan berakhlak mulia</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon">📖</div>
+        <h3>Pendidikan Berkualitas</h3>
+        <p>Meningkatkan kualitas pendidikan untuk menciptakan lulusan yang cerdas dan berkarakter.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🕌</div>
+        <h3>Pembinaan Akhlak</h3>
+        <p>Menjadikan madrasah sebagai pusat pembinaan karakter dan nilai-nilai keislaman.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🔬</div>
+        <h3>Ilmu Pengetahuan</h3>
+        <p>Mengembangkan ilmu pengetahuan dan keterampilan untuk menghadapi tantangan zaman.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri">
+  <div class="container">
+    <div class="section-title">
+      <h2>Galeri Madrasah</h2>
+      <p>Dokumentasi kegiatan MTs Fathul Jannah</p>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-card">
+        <img src="images/galeri-1.jpg" alt="Galeri kegiatan 1">
+      </div>
+      <div class="news-card">
+        <img src="images/galeri-2.jpg" alt="Galeri kegiatan 2">
+      </div>
+      <div class="news-card">
+        <img src="images/galeri-3.jpg" alt="Galeri kegiatan 3">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote">
+  <blockquote>
+    "Selamat datang wahai penuntut ilmu. Sesungguhnya penuntut ilmu benar-benar ditutupi para Malaikat dan dinaungi dengan sayap-sayapnya."
+    <br><br>
+    <strong>HR. Ath-Thabrani</strong>
+  </blockquote>
+</div>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div class="footer-grid">
+    <div>
+      <h3>MTs FATHUL JANNAH</h3>
+      <p>Pondok Pesantren Busra Chalid Palangka Raya, Kalimantan Tengah.</p>
+      <p>Madrasah yang berkomitmen menciptakan generasi beriman, berilmu, dan berakhlak mulia.</p>
+    </div>
+
+    <div>
+      <h3>Menu</h3>
+      <a href="#home">Beranda</a>
+      <a href="#profil">Profil Madrasah</a>
+      <a href="#kegiatan">Kegiatan</a>
+      <a href="#berita">Berita</a>
+      <a href="#galeri">Galeri</a>
+    </div>
+
+    <div>
+      <h3>Media Sosial</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 MTs Fathul Jannah. Semua Hak Dilindungi.
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const nav = document.getElementById("navigation");
+  const btn = document.querySelector(".menu-toggle");
+  nav.classList.toggle("active");
+  btn.textContent = nav.classList.contains("active") ? "✕" : "☰";
+}
+
+function toggleDropdown(event) {
+  if (window.innerWidth <= 850) {
+    event.preventDefault();
+    const dropdown = event.currentTarget.parentElement;
+
+    document.querySelectorAll(".dropdown").forEach(item => {
+      if (item !== dropdown) {
+        item.classList.remove("active");
+      }
+    });
+
+    dropdown.classList.toggle("active");
+  }
+}
+
+// Tutup menu otomatis saat link diklik di tampilan mobile
+document.querySelectorAll("#navigation a").forEach(link => {
+  link.addEventListener("click", function() {
+    document.querySelectorAll(".dropdown").forEach(item => {
+      item.classList.remove("active");
+    });
+    const nav = document.getElementById("navigation");
+    const btn = document.querySelector(".menu-toggle");
+    nav.classList.remove("active");
+    btn.textContent = "☰";
+  });
+});
+</script>
+
+</body>
+</html>
