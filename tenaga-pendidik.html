@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenaga Pendidik | MTs Fathul Jannah Palangka Raya</title>
+
+<style>
+:root {
+  --green: #126b45;
+  --dark: #08452e;
+  --light: #eaf5ed;
+  --gold: #d6ad50;
+  --text: #26352d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.7;
+}
+
+/* ================= HEADER & NAVBAR (SAMA DENGAN INDEX) ================= */
+header {
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.navbar {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.logo-text h2 {
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+nav > a,
+.dropbtn {
+  color: #333;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+nav > a:hover,
+.dropbtn:hover,
+.dropdown:hover .dropbtn,
+.active-menu {
+  color: var(--green);
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-top: 3px solid var(--gold);
+  border-radius: 0 0 8px 8px;
+  z-index: 200;
+  padding: 8px 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  color: #333;
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background: var(--light);
+  color: var(--green);
+  padding-left: 24px;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--green);
+  color: white;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= BANNER JUDUL HALAMAN ================= */
+.page-banner {
+  background: linear-gradient(90deg, var(--dark), var(--green));
+  color: white;
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.page-banner h1 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.page-banner p {
+  font-size: 15px;
+  color: #dcebe2;
+}
+
+/* ================= KONTEN TENAGA PENDIDIK ================= */
+section {
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* ================= GRID KARTU TENAGA PENDIDIK ================= */
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  gap: 25px;
+}
+
+.teacher-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-bottom: 4px solid var(--gold);
+  transition: transform 0.25s ease;
+}
+
+.teacher-card:hover {
+  transform: translateY(-5px);
+}
+
+.teacher-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background: var(--light);
+}
+
+.teacher-info {
+  padding: 18px 17px 20px;
+}
+
+.teacher-number {
+  display: inline-block;
+  color: #8a6a1e;
+  background: #fbf4df;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+}
+
+.teacher-info .teacher-role {
+  color: #8a6a1e;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.teacher-details {
+  border-top: 1px solid #e7eee9;
+  padding-top: 10px;
+}
+
+.teacher-details p {
+  font-size: 12px;
+  color: #58665e;
+  margin: 5px 0;
+  overflow-wrap: anywhere;
+}
+
+.teacher-details strong {
+  color: var(--dark);
+}
+
+.teacher-info h3 {
+  color: var(--green);
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.teacher-info p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #082f22;
+  color: white;
+  padding: 50px 20px 20px;
+}
+
+.footer-grid {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+footer h3 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+footer a {
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  margin: 7px 0;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 35px;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (min-width: 851px) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+@media (max-width: 850px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px 20px 25px;
+    gap: 6px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav > a,
+  .dropbtn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 10px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  .dropdown {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border-top: none;
+    border-left: 3px solid var(--gold);
+    background: var(--light);
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .teacher-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="navbar">
+
+    <!-- Logo diarahkan kembali ke index.html -->
+    <a href="index.html" class="logo">
+      <img src="images/logo-madrasah.png" alt="Logo MTs Fathul Jannah">
+      <div class="logo-text">
+        <h2>MTs FATHUL JANNAH</h2>
+        <p>Pondok Pesantren Busra Chalid</p>
+      </div>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Buka menu">☰</button>
+
+    <nav id="navigation">
+      <a href="index.html">BERANDA</a>
+
+      <!-- DROPDOWN PROFIL -->
+      <div class="dropdown">
+        <button class="dropbtn active-menu" type="button" onclick="toggleDropdown(event)">
+          PROFIL <span>▾</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="profil-madrasah.html">Profil Madrasah</a>
+          <a href="visi-misi.html">Visi dan Misi</a>
+          <a href="tenaga-pendidik.html">Tenaga Pendidik</a>
+          <a href="sejarah-madrasah.html">Sejarah Madrasah</a>
+        </div>
+      </div>
+
+      <!-- DROPDOWN KEGIATAN -->
+      <div class="dropdown">
+        <button class="dropbtn" type="button" onclick="toggleDropdown(event)">
+          KEGIATAN <span>▾</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="index.html#pembelajaran">Kegiatan Pembelajaran</a>
+          <a href="index.html#ekstrakurikuler">Ekstrakurikuler</a>
+          <a href="index.html#kerjasama">Kerjasama dengan Pihak Eksternal</a>
+          <a href="index.html#pkkm">PKKM</a>
+        </div>
+      </div>
+
+      <!-- Mengarah kembali ke bagian tertentu di index.html -->
+      <a href="index.html#berita">BERITA</a>
+      <a href="index.html#galeri">GALERI</a>
+      <a href="#kontak">KONTAK</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- BANNER JUDUL -->
+<div class="page-banner">
+  <h1>Tenaga Pendidik & Kependidikan</h1>
+  <p>Beranda / Profil / Tenaga Pendidik</p>
+</div>
+
+<!-- DAFTAR GURU -->
+<section>
+  <div class="container">
+    <div class="teacher-grid">
+      <article class="teacher-card">
+        <img src="images/guru-1.jpg" alt="Foto RADINA" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 01</span>
+          <h3>RADINA</h3>
+          <p class="teacher-role">Kepala Madrasah</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> 198008202006042013</p>
+            <p><strong>Jenis Kelamin:</strong> P</p>
+            <p><strong>Pengangkat:</strong> Kemenag RI</p>
+            <p><strong>TMT:</strong> 01/07/2025</p>
+            <p><strong>Mata Pelajaran:</strong> Belum dicantumkan</p>
+            <p><strong>Tugas Tambahan:</strong> Kepala Madrasah</p>
+            <p><strong>Pendidikan:</strong> S-1 – Pendidikan Matematika (2004)</p>
+          </div>
+        </div>
+      </article>
+      <article class="teacher-card">
+        <img src="images/guru-2.jpg" alt="Foto H. TABAH HARI SUBAGIO, S.Pd" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 02</span>
+          <h3>H. TABAH HARI SUBAGIO, S.Pd</h3>
+          <p class="teacher-role">Guru Bahasa Inggris</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> 196802141994021001</p>
+            <p><strong>Jenis Kelamin:</strong> L</p>
+            <p><strong>Pengangkat:</strong> Kemenag RI</p>
+            <p><strong>TMT:</strong> 01/01/2021</p>
+            <p><strong>Mata Pelajaran:</strong> Bahasa Inggris</p>
+            <p><strong>Tugas Tambahan:</strong> Wakamad Pengajaran</p>
+            <p><strong>Pendidikan:</strong> S-1 – Pendidikan Bahasa Inggris (1993)</p>
+          </div>
+        </div>
+      </article>
+      <article class="teacher-card">
+        <img src="images/guru-3.jpg" alt="Foto LUQMAN FARITS ADIYAT, S.Pd" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 03</span>
+          <h3>LUQMAN FARITS ADIYAT, S.Pd</h3>
+          <p class="teacher-role">Guru IPA / TIK</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> 198906012019031008</p>
+            <p><strong>Jenis Kelamin:</strong> L</p>
+            <p><strong>Pengangkat:</strong> Kemenag RI</p>
+            <p><strong>TMT:</strong> 10/05/2021</p>
+            <p><strong>Mata Pelajaran:</strong> IPA, TIK</p>
+            <p><strong>Tugas Tambahan:</strong> Wakamad Kesiswaan</p>
+            <p><strong>Pendidikan:</strong> S-1 – Pendidikan Fisika (2016)</p>
+          </div>
+        </div>
+      </article>
+      <article class="teacher-card">
+        <img src="images/guru-4.jpg" alt="Foto SRI MIATI, S.Pd" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 04</span>
+          <h3>SRI MIATI, S.Pd</h3>
+          <p class="teacher-role">Guru Matematika</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> -</p>
+            <p><strong>Jenis Kelamin:</strong> P</p>
+            <p><strong>Pengangkat:</strong> Yayasan</p>
+            <p><strong>TMT:</strong> 10/05/2010</p>
+            <p><strong>Mata Pelajaran:</strong> Matematika</p>
+            <p><strong>Tugas Tambahan:</strong> Wali Kelas IX, Pembina UKS</p>
+            <p><strong>Pendidikan:</strong> S-1 – Pendidikan Fisika (2015)</p>
+          </div>
+        </div>
+      </article>
+      <article class="teacher-card">
+        <img src="images/guru-5.jpg" alt="Foto AHMAD HUMAIDI, S.Pd.I" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 05</span>
+          <h3>AHMAD HUMAIDI, S.Pd.I</h3>
+          <p class="teacher-role">Guru PJOK</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> -</p>
+            <p><strong>Jenis Kelamin:</strong> L</p>
+            <p><strong>Pengangkat:</strong> Yayasan</p>
+            <p><strong>TMT:</strong> 01/07/2024</p>
+            <p><strong>Mata Pelajaran:</strong> PJOK</p>
+            <p><strong>Tugas Tambahan:</strong> -</p>
+            <p><strong>Pendidikan:</strong> S-1 – Pendidikan BK (2016)</p>
+          </div>
+        </div>
+      </article>
+      <article class="teacher-card">
+        <img src="images/guru-6.jpg" alt="Foto MUHDIAH, S.H" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 06</span>
+          <h3>MUHDIAH, S.H</h3>
+          <p class="teacher-role">Guru IPS / Bahasa Arab</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> -</p>
+            <p><strong>Jenis Kelamin:</strong> P</p>
+            <p><strong>Pengangkat:</strong> Yayasan</p>
+            <p><strong>TMT:</strong> 01/07/2024</p>
+            <p><strong>Mata Pelajaran:</strong> IPS, Bahasa Arab</p>
+            <p><strong>Tugas Tambahan:</strong> Bendahara BOS</p>
+            <p><strong>Pendidikan:</strong> S-1 – Hukum Keluarga Islam (2024)</p>
+          </div>
+        </div>
+      </article>
+      <article class="teacher-card">
+        <img src="images/guru-7.jpg" alt="Foto JENI SITI REJEKI, S.Pd" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 07</span>
+          <h3>JENI SITI REJEKI, S.Pd</h3>
+          <p class="teacher-role">Guru Pendidikan Agama Islam</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> -</p>
+            <p><strong>Jenis Kelamin:</strong> P</p>
+            <p><strong>Pengangkat:</strong> Yayasan</p>
+            <p><strong>TMT:</strong> 01/01/2025</p>
+            <p><strong>Mata Pelajaran:</strong> Al Qur'an Hadits, Akidah Akhlak, SKI, Fikih</p>
+            <p><strong>Tugas Tambahan:</strong> Wali Kelas VII</p>
+            <p><strong>Pendidikan:</strong> S-1 – Pendidikan Agama Islam (2024)</p>
+          </div>
+        </div>
+      </article>
+      <article class="teacher-card">
+        <img src="images/guru-8.jpg" alt="Foto M. RIZA NURHADI, S.Pd" loading="lazy">
+        <div class="teacher-info">
+          <span class="teacher-number">GURU 08</span>
+          <h3>M. RIZA NURHADI, S.Pd</h3>
+          <p class="teacher-role">Guru SBK / Bahasa Indonesia</p>
+          <div class="teacher-details">
+            <p><strong>NIP:</strong> -</p>
+            <p><strong>Jenis Kelamin:</strong> L</p>
+            <p><strong>Pengangkat:</strong> Yayasan</p>
+            <p><strong>TMT:</strong> 18/07/2026</p>
+            <p><strong>Mata Pelajaran:</strong> Bahasa Indonesia</p>
+            <p><strong>Tugas Tambahan:</strong> Wali Kelas VII</p>
+            <p><strong>Pendidikan:</strong> S-1 – Pendidikan Luar Sekolah (2026)</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div class="footer-grid">
+    <div>
+      <h3>MTs FATHUL JANNAH</h3>
+      <p>Pondok Pesantren Busra Chalid Palangka Raya, Kalimantan Tengah.</p>
+      <p>Madrasah yang berkomitmen menciptakan generasi beriman, berilmu, dan berakhlak mulia.</p>
+    </div>
+
+    <div>
+      <h3>Menu</h3>
+      <a href="index.html">Beranda</a>
+      <a href="profil-madrasah.html">Profil Madrasah</a>
+      <a href="tenaga-pendidik.html">Tenaga Pendidik</a>
+      <a href="index.html#berita">Berita</a>
+      <a href="index.html#galeri">Galeri</a>
+    </div>
+
+    <div>
+      <h3>Media Sosial</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 MTs Fathul Jannah. Semua Hak Dilindungi.
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const nav = document.getElementById("navigation");
+  const btn = document.querySelector(".menu-toggle");
+  nav.classList.toggle("active");
+  btn.textContent = nav.classList.contains("active") ? "✕" : "☰";
+}
+
+function toggleDropdown(event) {
+  if (window.innerWidth <= 850) {
+    event.preventDefault();
+    const dropdown = event.currentTarget.parentElement;
+
+    document.querySelectorAll(".dropdown").forEach(item => {
+      if (item !== dropdown) {
+        item.classList.remove("active");
+      }
+    });
+
+    dropdown.classList.toggle("active");
+  }
+}
+</script>
+
+</body>
+</html>
