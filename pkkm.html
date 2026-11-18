@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+<title>MTS FATHUL JANNAH — PKKM Penilaian Kinerja Kepala Madrasah</title>
+<style>
+::root{
+  --bg: #f2f7f2; 
+  --card: #ffffff; 
+  --ink: #12291a; 
+  --muted: #5c7260;
+  --green: #126b45;       /* Warna hijau utama */
+  --green2: #054d26;      /* Warna hijau tua untuk gradasi header */
+  --accent: #fef102;      /* Warna kuning aksen */
+  --accent-dark: #08452e; 
+  --accent-bg: #ffffd9;
+  --line: #d9e6da; 
+  --radius: 14px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+ /* === HEADER & NAVBAR SERUPA WEBSITE UTAMA === */
+header.site-header {
+  background: linear-gradient(135deg, #054d26 0%, #008644 65%, #00a651 100%);
+  color: #fff;
+  border-bottom: 4px solid #fef102;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 50;
+}
+.header-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #fff;
+}
+.brand-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  border: 2.5px solid #fef102;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+.brand-text h2 {
+  margin: 0;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  line-height: 1.15;
+}
+.brand-text p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: #fef102;
+  font-weight: 600;
+}
+nav.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+nav.main-nav > a,
+.nav-dropdown > button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+nav.main-nav > a:hover,
+.nav-dropdown:hover > button {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fef102;
+}
+nav.main-nav > a.active {
+  background: #fef102;
+  color: #054d26;
+}
+.nav-dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 230px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  border: 1px solid #d9e6da;
+  padding: 6px;
+  margin-top: 4px;
+  z-index: 100;
+}
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 9px 12px;
+  color: #12291a;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 7px;
+}
+.dropdown-menu a:hover {
+  background: #e7f3ea;
+  color: #054d26;
+}
+.sub-banner {
+  background: #043b1d;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.sub-banner .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sub-banner strong {
+  color: #fef102;
+}
+@media (max-width: 820px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav.main-nav {
+    width: 100%;
+  }
+}
+@media print {
+  nav.main-nav,
+  .sub-banner {
+    display: none !important;
+  }
+}
+.wrap{max-width:1180px;margin:0 auto}
+.hero h1{margin:0;font-size:clamp(22px,3.4vw,34px);line-height:1.2}
+.hero p{margin:8px 0 0;opacity:.92}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:999px;font-size:13px}
+.toolbar{position:sticky;top:0;z-index:20;background:rgba(244,247,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px}
+.toolbar-inner{max-width:1180px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input[type=text],input[type=url],select,textarea{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;background:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid #15734733;border-color:var(--green)}
+.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;font-size:14px}
+.btn-primary{background:#008644;color:#fff;border:1.5px solid #054d26}
+.btn-primary:hover{background:#054d26}
+.btn-dark{background:#054d26;color:#fff;border:1.5px solid #054d26}
+.btn-dark:hover{background:#033a1d}
+.btn-gold{background:#fef102;color:#12300f;border:1.5px solid #054d26}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-sm{padding:7px 10px;font-size:13px}
+.grid-identitas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+@media(max-width:900px){.grid-identitas{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid-identitas{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 6px 18px rgba(13,77,47,.06)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.stat b{font-size:26px;display:block}
+.progress{height:10px;background:#dde7de;border-radius:999px;overflow:hidden;margin-top:8px}
+.progress>div{height:100%;background:linear-gradient(90deg,#157347,#2fbf71);width:0%}
+.section{margin:22px 0}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(90deg,#054d26,#008644);border-left:6px solid #fef102;color:#fff;padding:14px 16px;border-radius:12px;cursor:pointer}
+.section-head h2{margin:0;font-size:17px}
+.section-head small{opacity:.85}
+.sub{margin:16px 0 6px;background:var(--accent-bg);border:1px dashed #008644;border-radius:10px;padding:10px 14px}
+.sub b{color:#054d26}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:10px}
+table{border-collapse:collapse;width:100%;min-width:980px;font-size:13.5px}
+th{background:#054d26;color:#fff;padding:11px 10px;text-align:left;position:sticky;top:0}
+td{padding:10px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#f2f9f2}
+.pill{display:inline-block;padding:3px 9px;border-radius:999px;background:#e7f3ea;color:#0d4d2f;font-size:12px;font-weight:700}
+.linkbox{display:flex;flex-direction:column;gap:6px;min-width:250px}
+.linkrow{display:flex;gap:6px}
+.linkrow input{flex:1}
+.status-dot{font-size:12px;font-weight:700}
+.ok{color:#157347}.empty{color:#a00}
+a.view-link{font-size:11.5px;font-weight:700;color:#054d26;word-break:break-all}
+.pill{background:#e3f3e7;color:#054d26;border:1px solid #008644}
+table{border-collapse:collapse;width:100%;min-width:1020px;font-size:13.5px}
+thead th{border-bottom:3px solid #fef102}
+tbody tr:hover td{background:#eef7ee}
+.linkbox{min-width:230px;max-width:290px}
+.slot{display:flex;align-items:center;gap:4px;border:1px solid #cfe2d1;border-radius:8px;padding:3px 4px;background:#f7fcf7;margin-bottom:4px}
+.slot-label{flex:0 0 84px;max-width:84px;font-size:10.5px;font-weight:800;color:#054d26;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slot input{flex:1;min-width:0;font-size:12px;padding:4px 6px;border-radius:6px}
+.slot .status-dot{flex-shrink:0;font-size:12px;min-width:16px;text-align:center}
+.btn-xs{padding:4px 7px;font-size:12px;border-radius:7px;line-height:1.2;white-space:nowrap}
+.slot .status-dot{font-size:11px}
+.slot-count{background:#054d26;color:#fef102;font-size:11px;font-weight:800;border-radius:999px;padding:1px 8px;margin-left:6px}
+.hint{color:var(--muted);font-size:13px}
+footer{padding:26px 20px 60px;color:var(--muted)}
+.kbd{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12px}
+@media print{.toolbar,.no-print{display:none!important}body{background:#fff}.card,.table-wrap{box-shadow:none}table{min-width:0}}
+</style>
+</head>
+<body>
+ <header class="site-header">
+  <div class="header-container">
+    <a href="https://mtsfathuljannah-pky.github.io/#home" class="brand-link">
+      <!-- Pertahankan kode base64 asli dari pkkm.html pada atribut src di bawah ini -->
+      <img src="data:image/png;base64,[SALIN_BASE64_LOGO_DARI_PKKM_HTML]" alt="Logo MTs Fathul Jannah" class="brand-logo">
+      <div class="brand-text">
+        <h2>MTs FATHUL JANNAH</h2>
+        <p>Pondok Pesantren Busra Chalid</p>
+      </div>
+    </a>
+
+    <nav class="main-nav" aria-label="Navigasi Utama">
+      <a href="https://mtsfathuljannah-pky.github.io/#home">BERANDA</a>
+
+      <div class="nav-dropdown">
+        <button type="button">PROFIL ▾</button>
+        <div class="dropdown-menu">
+          <a href="https://mtsfathuljannah-pky.github.io/profil-madrasah.html">Profil Madrasah</a>
+          <a href="https://mtsfathuljannah-pky.github.io/#visi-misi">Visi dan Misi</a>
+          <a href="https://mtsfathuljannah-pky.github.io/#tenaga-pendidik">Tenaga Pendidik</a>
+          <a href="https://mtsfathuljannah-pky.github.io/#sejarah-madrasah">Sejarah Madrasah</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <button type="button">KEGIATAN ▾</button>
+        <div class="dropdown-menu">
+          <a href="https://mtsfathuljannah-pky.github.io/#pembelajaran">Kegiatan Pembelajaran</a>
+          <a href="https://mtsfathuljannah-pky.github.io/#ekstrakurikuler">Ekstrakurikuler</a>
+          <a href="https://mtsfathuljannah-pky.github.io/#kerjasama">Kerjasama dengan Pihak Eksternal</a>
+        </div>
+      </div>
+
+      <a href="https://mtsfathuljannah-pky.github.io/#berita">BERITA</a>
+      <a href="https://mtsfathuljannah-pky.github.io/#galeri">GALERI</a>
+      <a href="https://mtsfathuljannah-pky.github.io/#kontak">KONTAK</a>
+      <a href="pkkm.html" class="active">PKKM</a>
+    </nav>
+  </div>
+
+  <div class="sub-banner">
+    <div class="wrap">
+      <span>Instrumen &amp; Bukti Fisik <strong>Penilaian Kinerja Kepala Madrasah (PKKM)</strong></span>
+      <span>MTs Fathul Jannah Palangka Raya</span>
+    </div>
+  </div>
+</header>
+<div class="toolbar">
+<div class="toolbar-inner">
+<input id="q" type="text" placeholder="🔍 Cari indikator / data yang diharapkan… (cth: RKJM, supervisi, kewirausahaan)" style="flex:2;min-width:220px">
+<select id="filterKomponen" style="flex:1;min-width:180px">
+<option value="">Semua Komponen</option>
+<option value="1">1. Usaha Pengembangan Madrasah</option>
+<option value="2">2. Pelaksanaan Tugas Manajerial</option>
+<option value="3">3. Pengembangan Kewirausahaan</option>
+<option value="4">4. Supervisi Guru & Tendik</option>
+<option value="5">5. Hasil / Prestasi & Kualifikasi</option>
+</select>
+<select id="filterStatus" style="flex:1;min-width:150px">
+<option value="">Semua status</option>
+<option value="filled">Sudah ada link</option>
+<option value="empty">Belum ada link</option>
+</select>
+<select id="downloadSelect" onchange="handleDownload(this)" style="flex:1;min-width:155px">
+<option value="">⬇ Download</option>
+<option value="csv">⬇ CSV</option>
+<option value="json">⬇ JSON</option>
+</select>
+<button class="btn btn-gold" onclick="window.print()">🖨 Cetak</button>
+<button class="btn btn-ghost" onclick="resetAll()">Reset</button>
+<label class="btn btn-ghost" style="cursor:pointer">⬆ Import JSON<input type="file" id="importFile" accept=".json" hidden></label>
+</div>
+</div>
+
+<div class="wrap">
+<div class="card" style="margin-top:16px">
+<h3 style="margin:0 0 10px">🏫 Identitas Madrasah</h3>
+<div class="grid-identitas" style="grid-template-columns:repeat(2,1fr)">
+<div><span class="hint">Nama Madrasah</span><div style="font-weight:600;font-size:16px">MTs Fathul Jannah</div></div>
+<div><span class="hint">Nama Kepala Madrasah</span><div style="font-weight:600;font-size:16px">Radina, S.Pd</div></div>
+<div><span class="hint">Tahun Penilaian</span><div style="font-weight:600;font-size:16px">2026</div></div>
+<div><span class="hint">Pengawas Pembina</span><div style="font-weight:600;font-size:16px">Jumikun, M.Pd</div></div>
+</div>
+<p class="hint">💡 Cara isi bukti dukung: tempel link Google Drive / Docs / foto / video pada kolom terakhir tiap baris → klik <span class="kbd">Simpan</span> → link otomatis jadi tombol <b>Lihat Bukti ↗</b>.</p>
+</div>
+
+<div class="stats">
+<div class="stat"><span class="hint">Total indikator</span><b id="st_total">0</b></div>
+<div class="stat"><span class="hint">Sudah ada bukti dukung</span><b id="st_filled" style="color:#157347">0</b></div>
+<div class="stat"><span class="hint">Belum diisi</span><b id="st_empty" style="color:#b00">0</b></div>
+<div class="stat"><span class="hint">Kelengkapan</span><b id="st_pct">0%</b><div class="progress"><div id="st_bar"></div></div></div>
+</div>
+
+<div id="content"></div>
+
+<div class="card no-print" style="margin:20px 0">
+<h3>Panduan singkat</h3>
+<ol style="line-height:1.7;font-size:14px">
+<li>Isi identitas madrasah di atas.</li>
+<li>Gunakan pencarian untuk menemukan indikator (mis. “RKJM”, “perpustakaan”, “supervisi”).</li>
+<li>Pada kolom <b>Bukti Dukung</b>, isi <b>Judul/nama dokumen</b> + <b>Link</b>, klik Simpan.</li>
+<li>Data tersimpan otomatis di browser ini. Untuk pindah laptop: pilih <b>⬇ Download → ⬇ JSON</b> lalu di laptop lain klik <b>⬆ Import JSON</b>.</li>
+<li>Klik <b>🖨 Cetak</b> untuk PDF rekap (gunakan orientasi Landscape).</li>
+</ol>
+</div>
+</div>
+
+<footer><div class="wrap">Disusun dari dokumen “1. Instrumen PKKM Jenjang MI-MTs-MA.pdf”. Struktur kolom asli: No • Unsur Tugas Utama • Indikator Kinerja • Data yang Diharapkan • Bukti Fisik (metode verifikasi) • Skor • + kolom tambahan <b>Bukti Dukung (link, bisa diedit)</b>. Jika ada perbedaan redaksi, dokumen PDF tetap menjadi acuan.</div></footer>
+
+<script>
+const DATA = [
+{komp:"1", kompTitle:"1. Usaha Pengembangan Madrasah", unsur:[
+ {kode:"1.1", tugas:"Mengembangkan madrasah sesuai dengan kebutuhan", items:[
+  {ind:"Mampu mengembangkan struktur organisasi yang sesuai dengan kebutuhan program", data:"Dokumen struktur madrasah", bukti:"Observasi & studi dokumen: bagan/struktur, notulen rapat penyusunan, sosialisasi, daftar hadir, SK penetapan/pengesahan, rincian tugas tiap personil"},
+  {ind:"Mampu menempatkan personalia yang sesuai dengan kebutuhan", data:"Dokumen uraian tugas personalia di madrasah", bukti:"Studi dokumen: rincian tugas tiap personil, SOP personalia, sertifikat"},
+  {ind:"Mampu mengembangkan pedoman dan prosedur kerja organisasi madrasah", data:"Pedoman dan Prosedur Kerja Organisasi Madrasah", bukti:"Observasi dokumen SOP / Pedoman Sistem Informasi Madrasah"},
+ ]},
+ {kode:"1.2", tugas:"Mengelola perubahan dan pengembangan madrasah menuju organisasi pembelajar yang efektif", items:[
+  {ind:"Mampu mengembangkan program baru untuk meningkatkan pencapaian target yang lebih tinggi", data:"Program pengembangan madrasah memuat target keunggulan khas, kerja sama tim, dan realisasi target yang meningkat", bukti:"Studi dokumen: visi-misi, data prestasi, data hasil UN 3 tahun terakhir, data alumni, RKJM, bagan/SK/tupoksi, pedoman monev, reward-punishment"},
+  {ind:"Mampu dan terampil membangun tim kerja yang efektif untuk produk kinerja yang lebih unggul", data:"Struktur organisasi dilengkapi distribusi & deskripsi pembagian tugas", bukti:"Observasi & studi dokumen"},
+  {ind:"Mampu menerapkan berbagai teknik pembaharuan dalam pengelolaan pembelajaran", data:"Penerapan strategi pembaharuan yang terprogram", bukti:"Studi dokumen: kurikulum, kalender pendidikan, perangkat pembelajaran, penilaian, peraturan akademik, notulen evaluasi rutin pembelajaran"},
+  {ind:"Mampu mengembangkan potensi dan meningkatkan prestasi madrasah", data:"Dokumen perkembangan potensi & prestasi peserta didik yang meningkat dari waktu ke waktu", bukti:"Studi dokumen: data prestasi 1 tahun terakhir, hasil UN 1 tahun terakhir, akreditasi, ekstrakurikuler"},
+ ]},
+ {kode:"1.3", tugas:"Mengelola hubungan madrasah–masyarakat (dukungan ide, sumber belajar, pembiayaan)", items:[
+  {ind:"Merencanakan kerja sama dengan lembaga pemerintah, swasta, dan masyarakat", data:"Data kerja sama dengan pemerintah, swasta, masyarakat", bukti:"Studi dokumen: SK & AD/ART komite, program & laporan komite, MOU, foto, sertifikat/plakat"},
+  {ind:"Melakukan pendekatan untuk mendapatkan dukungan dari pemerintah, swasta, masyarakat", data:"Dokumen program kerja sama dengan pemerintah, swasta, masyarakat", bukti:"Studi dokumen: program/jadwal/laporan & foto kegiatan kerja sama"},
+  {ind:"Memanfaatkan dan memelihara hubungan pemerintah, swasta, masyarakat", data:"Data hasil kerja sama", bukti:"Studi dokumen: laporan kerja sama, monev, dokumentasi foto/video"},
+ ]},
+ {kode:"1.4", tugas:"Mengelola proses pencapaian SNP sesuai arah & tujuan Pendidikan Nasional", items:[
+  {ind:"Mengaplikasikan pengembangan kurikulum yang mengacu standar isi", data:"Dokumen analisis SNP – standar isi", bukti:"Studi dokumen: kurikulum, kalender, perangkat, pedoman penilaian, peraturan akademik, buku kerja guru, dokumen rapat kurikulum, silabus/RPP/struktur kurikulum, jam & jadwal mengajar, RPE, buku teks, jurnal, data siswa, supervisi"},
+  {ind:"Mengaplikasikan pengembangan proses pembelajaran yang mengacu standar proses", data:"Dokumen analisis SNP – standar proses", bukti:"Studi dokumen: instrumen penilaian, kisi-kisi, naskah soal, analisis butir soal, hasil belajar, tindak lanjut, PAS/PAT"},
+  {ind:"Mengaplikasikan sistem penilaian pembelajaran yang mengacu standar penilaian", data:"Dokumen analisis SNP – standar penilaian", bukti:"Studi dokumen penilaian (sama di atas)"},
+  {ind:"Melaksanakan penjaminan mutu pencapaian Standar Kompetensi Lulusan (SKL)", data:"Dokumen analisis SNP – SKL", bukti:"Studi dokumen & observasi: program/laporan kesiswaan, pembiasaan, literasi, rata-rata ujian 2 tahun, prestasi akademik & non-akademik 2 tahun"},
+ ]},
+ {kode:"1.5", tugas:"Mengelola unit layanan khusus untuk pembelajaran & peserta didik", items:[
+  {ind:"Mampu mengelola laboratorium agar dimanfaatkan optimal", data:"Bukti pemanfaatan lab (jadwal dll.)", bukti:"Observasi & studi dokumen: luas standar, sarana pendukung, jurnal/laporan & program kerja lab"},
+  {ind:"Mampu mengelola perpustakaan sebagai sumber belajar", data:"Bukti pemanfaatan perpustakaan (jadwal dll.)", bukti:"Observasi & studi dokumen: luas standar, sarana, buku induk, laporan & program kerja perpus"},
+  {ind:"Mampu mengelola usaha madrasah untuk pembelajaran & tambahan dana", data:"Bukti kegiatan usaha madrasah dalam pembelajaran", bukti:"Studi dokumen: data/laporan & dokumentasi usaha; observasi: instrumen praktik & foto, AD/ART koperasi, RAT"},
+  {ind:"Mampu mengelola koperasi sebagai media praktik & sumber belajar", data:"Bukti pemanfaatan koperasi dalam pembelajaran", bukti:"Observasi, studi dokumen & wawancara"},
+ ]},
+ {kode:"1.6", tugas:"Mengelola sistem informasi madrasah untuk program & pengambilan keputusan", items:[
+  {ind:"Memanfaatkan TIK dalam manajemen madrasah", data:"Bukti pemanfaatan TIK dalam manajemen", bukti:"Observasi, wawancara, studi dokumen: fasilitas TIK, sumber informasi, website, pedoman SIM, komputer"},
+  {ind:"Memanfaatkan TIK dalam pembelajaran sebagai sumber & media", data:"Bukti pemanfaatan TIK sebagai sumber & media pembelajaran", bukti:"Observasi & wawancara: komputer, jaringan internet, website, email, pemanfaatan TIK pembelajaran"},
+ ]},
+ {kode:"1.7", tugas:"Memanfaatkan kemajuan TIK bagi pembelajaran & manajemen", items:[
+  {ind:"Mengembangkan sistem administrasi pengelolaan yang efektif dengan TIK", data:"Penerapan TIK (komputer, CD, intranet/internet) untuk persuratan, sarpras, kepegawaian, kesiswaan, keuangan", bukti:"Observasi & studi dokumen: SIM, surat tugas pengelola SIM, pelaporan data, program kerja sama, MOU"},
+  {ind:"Mengelola administrasi pembelajaran yang efektif dengan TIK", data:"Model TIK untuk administrasi kurikulum & pembelajaran (mis. kurikulum berbasis komputer/intranet/internet)", bukti:"Observasi & wawancara: komputer/LCD, internet, web & email, absensi elektronik, dokumen TIK administrasi"},
+  {ind:"Mengembangkan sistem pengelolaan perpustakaan yang efektif dengan TIK", data:"Model TIK untuk perpustakaan (komputer/intranet/internet)", bukti:"Observasi & studi dokumen: katalog digital, BSE, internet, komputer, aplikasi layanan perpus"},
+  {ind:"Memanfaatkan TIK untuk kerja sama & promosi program/prestasi", data:"Bukti TIK untuk kerja sama & promosi", bukti:"Observasi & studi dokumen: program promosi, TIK pembelajaran (Edmodo/Classroom), penilaian online"},
+ ]},
+]},
+{komp:"2", kompTitle:"2. Pelaksanaan Tugas Manajerial", unsur:[
+ {kode:"2.1", tugas:"Menyusun perencanaan madrasah (berbagai tingkatan)", items:[
+  {ind:"Mengembangkan RKJM, RKT/RKAM & program lain berbasis hasil evaluasi pemenuhan SNP", data:"Dokumen RKJM, RKT/RKAM meliputi SNP", bukti:"Studi dokumen: EDM, RKJM & RKT berbasis EDM"},
+  {ind:"Merumuskan visi-misi sebagai arah pengembangan program", data:"Visi-misi hasil keputusan bersama", bukti:"Studi dokumen: visi-misi Kamad, berita acara & daftar hadir perumusan/penetapan"},
+  {ind:"Menentukan strategi pencapaian tujuan dilengkapi indikator terukur", data:"Dokumen program memuat strategi pencapaian", bukti:"Studi dokumen: program kerja, RKJM & RKTM"},
+  {ind:"Menyusun program dengan rencana evaluasi keterlaksanaan & pencapaian", data:"Dokumen rencana evaluasi keterlaksanaan & pencapaian", bukti:"Studi dokumen: RKJM & RKTM"},
+ ]},
+ {kode:"2.2", tugas:"Memimpin madrasah dalam pendayagunaan sumber daya secara optimal", items:[
+  {ind:"Memberi contoh disiplin: hadir tepat waktu, menggunakan & mengakhiri pekerjaan tepat waktu", data:"Daftar hadir semua kegiatan madrasah", bukti:"Observasi, wawancara & studi dokumen: daftar hadir elektronik Kamad & kegiatan"},
+  {ind:"Melaksanakan peraturan sesuai ketentuan yang berlaku", data:"Keteladanan & pengarahan guru/staf/siswa sesuai peraturan", bukti:"Wawancara warga madrasah: laporan kehadiran, notulen/briefing"},
+  {ind:"Menunjukkan keteladanan memanfaatkan sumber daya efektif-efisien", data:"Pemecahan masalah bersama, perencanaan & pemantauan sumber belajar/informasi", bukti:"Wawancara: dokumen monev pemanfaatan sumber belajar, notulensi rapat/diskusi"},
+ ]},
+ {kode:"2.3", tugas:"Menciptakan budaya & iklim madrasah yang kondusif & inovatif", items:[
+  {ind:"Menjadi contoh berbudaya mutu kompetitif mendorong prestasi akademik & non-akademik", data:"Dokumen peningkatan KKM, target ulangan/UN & keunggulan non-akademik yang terprogram & meningkat", bukti:"Wawancara, observasi: buku referensi, karya tulis, majalah/koran, website/blog; studi dokumen: KKM, UN, inovasi, prestasi"},
+  {ind:"Melengkapi sarpras untuk suasana belajar kondusif & inovatif", data:"Lingkungan asri, bersih, rindang, aman, menyenangkan", bukti:"Observasi lingkungan madrasah"},
+  {ind:"Memfasilitasi kegiatan peningkatan budaya baca & tulis", data:"Kunjungan perpus, peminjaman, pembaharuan buku, TIK, publikasi karya, kompetisi karya tulis", bukti:"Observasi, wawancara & studi dokumen: rencana/laporan literasi, karya siswa, data kunjungan/peminjaman"},
+  {ind:"Memfasilitasi lomba akademik & non-akademik bagi peserta didik", data:"Penyelenggaraan kompetisi dari tingkat madrasah + piagam/piala/trofi", bukti:"Observasi, wawancara & studi dokumen: dokumen kompetisi & penghargaan"},
+  {ind:"Menunjukkan kedisiplinan sebagai insan pembelajar", data:"Rajin membaca, pendengar baik, menulis, berbagi ilmu, menyediakan media gagasan", bukti:"Wawancara & observasi"},
+ ]},
+ {kode:"2.4", tugas:"Mengelola guru & staf (pendayagunaan SDM optimal)", items:[
+  {ind:"Menyusun perencanaan pengembangan pendidik & tendik", data:"Dokumen program pembinaan pendidik & tendik", bukti:"Studi dokumen & wawancara: program Kamad, laporan workshop/pelatihan, dokumentasi"},
+  {ind:"Melakukan pembinaan berkala untuk mutu SDM", data:"Dokumen pelaksanaan pembinaan guru", bukti:"Studi dokumen & wawancara: buku/catatan pembinaan, notulen, daftar hadir, laporan kinerja Kamad"},
+  {ind:"Memfasilitasi guru & staf administrasi meningkatkan pembinaan kompetensi", data:"Dukungan Kamad memfasilitasi staf meningkatkan mutu profesi", bukti:"Studi dokumen & wawancara (sama)"},
+  {ind:"Memantau & menilai penerapan hasil pelatihan dalam pekerjaan", data:"Dokumen evaluasi pelatihan/pengembangan profesi", bukti:"Observasi & studi dokumen: program & laporan pelatihan profesi guru/tendik"},
+ ]},
+ {kode:"2.5", tugas:"Mengelola sarana-prasarana secara optimal", items:[
+  {ind:"Mengelola perabot & sarana (gedung, lahan, meja, kursi, lemari, peralatan kantor, kebersihan)", data:"Fasilitas dikelola baik", bukti:"Observasi & studi dokumen: buku inventaris, pemeliharaan sarpras"},
+  {ind:"Mengelola perpustakaan madrasah", data:"Fasilitas perpus dikelola baik", bukti:"Observasi fisik & studi dokumen: buku induk, data/grafik layanan"},
+  {ind:"Mengelola laboratorium madrasah", data:"Fasilitas lab dikelola baik", bukti:"Observasi fisik & studi dokumen: inventaris lab, buku/jurnal/grafik layanan"},
+  {ind:"Mengelola fasilitas penunjang lain (bengkel, toko, koperasi, kebun, dsb.)", data:"Fasilitas penunjang terkelola baik", bukti:"Observasi, wawancara & studi dokumen: data fasilitas wirausaha madrasah"},
+ ]},
+ {kode:"2.6", tugas:"Mengelola peserta didik (penerimaan, penempatan, pengembangan)", items:[
+  {ind:"Menyusun perencanaan penerimaan, pengelolaan & pengembangan kompetensi peserta didik", data:"Program PPDB, kriteria, data analisis bekal ajar awal", bukti:"Studi dokumen: program PPDB, brosur, analisis kemampuan, psikotes minat-bakat"},
+  {ind:"Memiliki program pengembangan potensi diri & prestasi peserta didik", data:"Dokumen program pengembangan potensi & prestasi", bukti:"Observasi & studi dokumen: program & laporan pengembangan diri akademik/non-akademik"},
+  {ind:"Memfasilitasi pembiasaan melalui penanaman nilai-nilai", data:"Program akademik & non-akademik berbasis nilai", bukti:"Observasi, wawancara & studi dokumen: program/laporan akademik-nonakademik, pembiasaan, dokumentasi"},
+  {ind:"Memfasilitasi pengembangan diri peserta didik, pendidik & tendik secara optimal", data:"Keterlaksanaan program pengembangan diri", bukti:"Observasi, wawancara & studi dokumen: program pengembangan diri, dokumentasi, prestasi siswa/guru/tendik"},
+  {ind:"Memfasilitasi kolaborasi & kompetisi akademik/non-akademik", data:"Kegiatan kolaborasi & kompetisi tingkat madrasah", bukti:"Wawancara & studi dokumen: program/laporan kesiswaan, prestasi"},
+ ]},
+ {kode:"2.7", tugas:"Mengelola pengembangan kurikulum & pembelajaran", items:[
+  {ind:"Mengarahkan penerapan prinsip pengembangan kurikulum (IHT, workshop, rakor, MGMP/KKG)", data:"Hasil pengembangan kurikulum via rapat kerja/IHT/workshop/MGMP", bukti:"Studi dokumen: kurikulum berlaku, SK tim, daftar hadir/berita acara/notulen"},
+  {ind:"Mengendalikan pelaksanaan kurikulum berlandaskan kalender, SK pembagian tugas & aturan akademik", data:"Pelaksanaan sesuai kalender, SK & aturan akademik", bukti:"Studi dokumen: struktur kurikulum, jadwal, hadir guru, peraturan akademik, kalender, SK mengajar"},
+  {ind:"Memfasilitasi efektivitas tim kerja guru untuk mutu pembelajaran", data:"Kerja sama guru intra & antar satuan pendidikan", bukti:"Studi dokumen: program & laporan KKG/MGMP, dokumentasi"},
+  {ind:"Mengembangkan layanan belajar inovatif via perangkat & sumber belajar terbarukan", data:"Metode hasil pelatihan, TIK, alat peraga, evaluasi baru & produk belajar", bukti:"Observasi kelas, studi dokumen (RPP/metode/media/sumber), wawancara siswa-guru, dokumentasi"},
+ ]},
+ {kode:"2.8", tugas:"Mengelola keuangan (akuntabel, transparan, efisien)", items:[
+  {ind:"Merencanakan kebutuhan keuangan jangka pendek & panjang sesuai rencana pengembangan", data:"Dokumen RKJM & RKTM", bukti:"Studi dokumen: RKJM/RKTM, rencana anggaran, laporan keuangan, buku kas"},
+  {ind:"Mengupayakan sumber keuangan terutama dari luar & unit usaha", data:"Dokumen RKJM & RKTM", bukti:"Studi dokumen: RKJM/RKTM, laporan keuangan"},
+  {ind:"Mengkoordinasikan penggunaan keuangan sesuai peraturan, asas prioritas & efisiensi", data:"Dokumen RKJM & RKTM", bukti:"Studi dokumen: RKJM/RKTM, laporan keuangan"},
+  {ind:"Membuat laporan & evaluasi pengelolaan keuangan (efisien, transparan, akuntabel)", data:"Dokumen RKJM & RKTM", bukti:"Studi dokumen: RKJM/RKTM, laporan keuangan, buku kas"},
+ ]},
+ {kode:"2.9", tugas:"Mengelola ketatausahaan untuk pencapaian tujuan", items:[
+  {ind:"Mengelola administrasi surat masuk & keluar sesuai pedoman", data:"Dokumen surat masuk & keluar", bukti:"Studi dokumen surat masuk/keluar"},
+  {ind:"Mengelola administrasi akademik, kesiswaan, sarpras, keuangan & humas", data:"Dokumen administrasi madrasah", bukti:"Studi dokumen administrasi (akademik, kesiswaan, sarpras, keuangan, humas)"},
+  {ind:"Mengelola kearsipan dinamis & lainnya", data:"Dokumen administrasi madrasah", bukti:"Studi dokumen: administrasi, arsip, SOP administrasi"},
+  {ind:"Mengelola administrasi akreditasi sesuai prinsip kelengkapan dokumen & bukti fisik", data:"Dokumen administrasi madrasah", bukti:"Studi dokumen administrasi pemenuhan SNP"},
+ ]},
+ {kode:"2.10", tugas:"Monitoring, evaluasi, pelaporan & tindak lanjut", items:[
+  {ind:"Menyusun standar kinerja program yang terukur (SKP)", data:"Dokumen SKP terukur", bukti:"Studi dokumen SKP"},
+  {ind:"Melakukan monev program dengan teknik yang sesuai", data:"Dokumen pelaksanaan monev", bukti:"Studi dokumen pelaksanaan monev"},
+  {ind:"Menyusun laporan sesuai standar pelaporan monev", data:"Dokumen laporan monev", bukti:"Studi dokumen laporan monev"},
+  {ind:"Merumuskan program tindak lanjut berbasis hasil evaluasi sebelumnya", data:"Dokumen tindak lanjut hasil monev", bukti:"Studi dokumen program tindak lanjut"},
+ ]},
+]},
+{komp:"3", kompTitle:"3. Pengembangan Kewirausahaan", unsur:[
+ {kode:"3.1", tugas:"Menciptakan inovasi yang bermanfaat & tepat", items:[
+  {ind:"Memahami & menghayati arti tujuan perubahan (inovasi)", data:"Perubahan madrasah lebih baik dari tahun ke tahun", bukti:"Studi dokumen: program kewirausahaan, profil madrasah, pemanfaatan & pembudayaan inovasi"},
+  {ind:"Menggunakan metode, teknik & proses perubahan madrasah", data:"Strategi perubahan ke arah lebih baik", bukti:"Observasi"},
+  {ind:"Menumbuhkan iklim yang mendorong kebebasan berpikir untuk kreativitas & inovasi", data:"Iklim pendorong kreativitas & inovasi", bukti:"Observasi & studi dokumen"},
+  {ind:"Mendorong warga madrasah berprakarsa / berani moral melakukan hal baru", data:"Prakarsa warga madrasah", bukti:"Observasi & studi dokumen"},
+ ]},
+ {kode:"3.2", tugas:"Bekerja keras mencapai keberhasilan sebagai organisasi pembelajar efektif", items:[
+  {ind:"Bertindak kreatif & inovatif via cara berpikir & bertindak", data:"Kegiatan kreatif & inovatif", bukti:"Observasi & studi dokumen"},
+  {ind:"Memberdayakan potensi madrasah optimal ke kegiatan produktif yang menguntungkan", data:"Pemberdayaan potensi ke kegiatan produktif", bukti:"Observasi, wawancara & studi dokumen"},
+  {ind:"Menumbuhkan jiwa kewirausahaan (kreatif, inovatif, produktif)", data:"Kegiatan penumbuh jiwa kewirausahaan", bukti:"Observasi, wawancara & studi dokumen: RPP bermuatan kreatif-produktif-kritis-mandiri-kolaboratif-komunikatif, karya siswa, foto, RPM, penanganan kasus"},
+  {ind:"Mencatat ide baru lalu mengembangkannya", data:"Pencatatan & pengembangan ide baru", bukti:"Observasi, wawancara & studi dokumen: RPM, penanganan kasus, hasil kegiatan"},
+ ]},
+ {kode:"3.3", tugas:"Memiliki motivasi kuat untuk sukses sebagai pemimpin", items:[
+  {ind:"Bersedia belajar dari orang lain", data:"Kemauan belajar dari orang lain", bukti:"Observasi, wawancara & studi dokumen"},
+  {ind:"Ingin melakukan yang terbaik", data:"Keinginan selalu terbaik", bukti:"Observasi, wawancara & studi dokumen"},
+  {ind:"Menciptakan perubahan yang kuat", data:"Keinginan melakukan perubahan kuat", bukti:"Observasi, wawancara & studi dokumen"},
+ ]},
+ {kode:"3.4", tugas:"Pantang menyerah & mencari solusi terbaik", items:[
+  {ind:"Melibatkan tokoh agama, masyarakat & pemerintah memecahkan masalah kelembagaan", data:"Kegiatan pelibatan tokoh dalam solusi masalah", bukti:"Wawancara & studi dokumen; forum komunikasi, foto, dokumen/foto kegiatan"},
+  {ind:"Bersikap objektif / tidak memihak mengatasi konflik internal", data:"Sikap objektif dalam konflik internal", bukti:"Studi dokumen kegiatan & foto; keikutsertaan & prestasi lomba; program inovasi/RPM; MoU/sister school"},
+  {ind:"Bersikap simpatik / tenggang rasa terhadap orang lain", data:"Sikap simpatik / tenggang rasa", bukti:"Studi dokumen kegiatan & foto"},
+ ]},
+ {kode:"3.5", tugas:"Naluri kewirausahaan dalam produksi/jasa sebagai sumber belajar", items:[
+  {ind:"Merencanakan kegiatan produksi/jasa sesuai potensi madrasah", data:"Perencanaan produksi/jasa sesuai potensi", bukti:"Studi dokumen laporan Pengembangan Unit Produksi Kewirausahaan"},
+  {ind:"Membina produksi/jasa secara profesional & akuntabel", data:"Pembinaan produksi/jasa profesional-akuntabel", bukti:"Studi dokumen laporan Pengembangan Unit Produksi"},
+  {ind:"Mengelola usaha madrasah untuk pembelajaran & tambahan dana", data:"Kegiatan usaha dalam pembelajaran", bukti:"Studi dokumen data/laporan usaha; laporan evaluasi, program jiwa kewirausahaan & unit produksi"},
+  {ind:"Melaksanakan pengawasan produksi/jasa & menyusun laporan", data:"Pengawasan & laporan produksi/jasa", bukti:"Wawancara & studi dokumen"},
+  {ind:"Mengembangkan produksi/jasa & pemasarannya", data:"Pengembangan & pemasaran produksi/jasa", bukti:"Wawancara & studi dokumen"},
+ ]},
+]},
+{komp:"4", kompTitle:"4. Supervisi kepada Guru & Tenaga Kependidikan", unsur:[
+ {kode:"4.1", tugas:"Menyusun program supervisi akademik untuk profesionalisme guru", items:[
+  {ind:"Mengidentifikasi masalah guru dalam pembelajaran", data:"Rumusan masalah dari pemantauan perencanaan, pelaksanaan & penilaian", bukti:"Studi dokumen: program & jadwal supervisi, SK tim supervisor"},
+  {ind:"Merumuskan tujuan dilengkapi target terukur", data:"Rumusan tujuan supervisi + target terukur", bukti:"Studi dokumen: program, jadwal, laporan supervisi"},
+  {ind:"Mengembangkan instrumen supervisi", data:"Instrumen relevan dengan target indikator tujuan", bukti:"Studi dokumen: instrumen supervisi"},
+ ]},
+ {kode:"4.2", tugas:"Melaksanakan supervisi akademik dengan pendekatan & teknik tepat", items:[
+  {ind:"Mengadakan pertemuan awal (rencana, fokus, instrumen disepakati)", data:"Data pertemuan awal: masalah, tujuan, fokus, instrumen", bukti:"Wawancara & studi dokumen: program/jadwal, hadir, notulen, foto, instrumen, laporan, rekomendasi, RTL"},
+  {ind:"Melaksanakan pemantauan & catatan objektif-selektif sebagai bahan supervisi", data:"Hasil observasi lengkap, objektif, selektif, relevan", bukti:"Wawancara & studi dokumen"},
+  {ind:"Melakukan pertemuan refleksi: analisis catatan, simpulan observasi", data:"Catatan kegiatan, refleksi, data, analisis, tafsir, keunggulan-kelemahan, rekomendasi", bukti:"Studi dokumen; analisis hasil, rekomendasi, hadir/notulen/foto refleksi"},
+ ]},
+ {kode:"4.3", tugas:"Menilai & menindaklanjuti supervisi akademik", items:[
+  {ind:"Memfasilitasi tindak lanjut perbaikan sistem penilaian hasil belajar", data:"Bukti tindak lanjut perbaikan sistem penilaian", bukti:"Wawancara & studi dokumen: hasil analisis & tindak lanjut, workshop/diklat penilaian, analisis butir soal, remidi-pengayaan"},
+  {ind:"Mengecek ulang keterlaksanaan rekomendasi oleh guru", data:"Rekomendasi perbaikan sistem penilaian berkala", bukti:"Wawancara & studi dokumen: hasil analisis & tindak lanjut, pelatihan guru, piagam"},
+  {ind:"Bersama guru menyusun rekomendasi tindak lanjut (analisis butir soal, remidi, pengayaan)", data:"Tindak lanjut supervisi penilaian + analisis butir soal, remidi, pengayaan", bukti:"Wawancara & studi dokumen: rekomendasi perbaikan sistem penilaian"},
+  {ind:"Melaksanakan pembinaan & pengembangan guru sebagai tindak lanjut supervisi", data:"Laporan tindak lanjut supervisi sebagai dasar pembinaan", bukti:"Wawancara & studi dokumen: laporan RTL, program PKB, laporan pembinaan, hadir/notulen/foto"},
+  {ind:"Menggunakan data supervisi untuk pemetaan ketercapaian & perbaikan siklus berikutnya", data:"Hasil supervisi sebagai bahan penilaian kinerja & profil madrasah", bukti:"Wawancara & studi dokumen: program & laporan PKB/pembinaan"},
+ ]},
+]},
+{komp:"5", kompTitle:"5. Hasil / Prestasi, Kualifikasi & Kemitraan", unsur:[
+ {kode:"5.1", tugas:"Prestasi peserta didik", items:[
+  {ind:"Prestasi akademik peserta didik", data:"Prestasi akademik berbagai tingkat", bukti:"Studi piagam & piala akademik"},
+  {ind:"Prestasi non-akademik peserta didik", data:"Prestasi non-akademik berbagai tingkat", bukti:"Studi piagam & piala non-akademik"},
+ ]},
+ {kode:"5.2", tugas:"Prestasi pendidik & tenaga kependidikan", items:[
+  {ind:"Prestasi akademik pendidik & tendik", data:"Prestasi akademik berbagai tingkat", bukti:"Studi piagam & piala akademik GTK"},
+  {ind:"Prestasi non-akademik pendidik & tendik", data:"Prestasi non-akademik berbagai tingkat", bukti:"Studi piagam & piala non-akademik GTK"},
+ ]},
+ {kode:"5.3", tugas:"Prestasi madrasah", items:[
+  {ind:"Kelebihan prestasi akademik dibanding madrasah/sekolah lain", data:"Keunggulan prestasi akademik", bukti:"Studi piagam, piala & laporan lomba akademik"},
+  {ind:"Kelebihan prestasi non-akademik dibanding madrasah/sekolah lain", data:"Keunggulan prestasi non-akademik", bukti:"Studi piagam, piala & laporan lomba non-akademik"},
+ ]},
+ {kode:"5.4", tugas:"Prestasi kepala madrasah, kualifikasi & kemitraan", items:[
+  {ind:"Ijazah yang dimiliki kepala madrasah", data:"Bukti ijazah Kamad", bukti:"Dokumen ijazah Kamad"},
+  {ind:"Pendidikan & pelatihan yang pernah diikuti Kamad", data:"Keikutsertaan diklat", bukti:"Sertifikat diklat"},
+  {ind:"Penguasaan ICT Kepala Madrasah", data:"Bukti penguasaan ICT", bukti:"Praktik penggunaan ICT"},
+  {ind:"Prestasi (akademik/non-akademik) yang diraih Kamad", data:"Bukti prestasi Kamad", bukti:"Piagam, medali, piala, SK"},
+  {ind:"Penelitian kependidikan oleh Kamad", data:"Karya penelitian kependidikan", bukti:"Karya ilmiah hasil penelitian pendidikan"},
+  {ind:"Pelibatan masyarakat (komite) mendukung program", data:"Pelibatan komite dalam program", bukti:"Dokumen pelibatan komite, program, laporan, notulen rapat komite"},
+  {ind:"Kemitraan stakeholder untuk kompetensi guru", data:"Kerja sama kemitraan peningkatan kompetensi guru", bukti:"Dokumen perjanjian kerja sama kemitraan"},
+ ]},
+]},
+];
+let store = JSON.parse(localStorage.getItem("pkkm_bukti_v1")||"{}");
+let ident = JSON.parse(localStorage.getItem("pkkm_ident_v1")||"{}");
+function keyFor(kode, idx){ return kode+"_"+idx; }
+function saveStore(){ localStorage.setItem("pkkm_bukti_v1", JSON.stringify(store)); renderStats(); }
+function render(){
+  const q = (document.getElementById("q").value||"").toLowerCase();
+  const fk = document.getElementById("filterKomponen").value;
+  const fs = document.getElementById("filterStatus").value;
+  const box = document.getElementById("content");
+  box.innerHTML="";
+  DATA.filter(d=>!fk||d.komp===fk).forEach(d=>{
+    const sec=document.createElement("div"); sec.className="section card";
+    sec.innerHTML=`<div class="section-head" onclick="this.parentElement.querySelector('.sec-body').classList.toggle('hide')"><h2>${d.kompTitle}</h2><small>klik untuk buka/tutup</small></div><div class="sec-body"></div>`;
+    const body=sec.querySelector(".sec-body");
+    d.unsur.forEach(u=>{
+      const rows=u.items.map((it,i)=>{
+        const k=keyFor(u.kode,i);
+        const slots=getSlots(k,it);
+        const labels=slots.labels; const arr=slots.arr;
+        const filledCount=arr.filter(x=>x&&x.link).length;
+        const hay=(u.kode+" "+u.tugas+" "+it.ind+" "+it.data+" "+it.bukti+" "+labels.join(" ")).toLowerCase();
+        if(q && !hay.includes(q)) return "";
+        if(fs==="filled" && filledCount===0) return "";
+        if(fs==="empty" && filledCount>0) return "";
+        const slotHtml=labels.map((lab,j)=>{
+          const vv=arr[j]||{title:"",link:""};
+          const has=!!vv.link;
+          const shortLab=lab.length>28?lab.slice(0,28)+"…":lab;
+          return `<div class="slot" title="${lab.replace(/"/g,"&quot;")}">
+            <span class="slot-label">${j+1}. ${shortLab}</span>
+            <input type="url" placeholder="Link…" value="${(vv.link||"").replace(/"/g,"&quot;")}" id="l_${k}__${j}">
+            <button class="btn btn-primary btn-xs" onclick="saveSlot('${k}',${j})" title="Simpan">✓</button>
+            ${has?`<a class="view-link" href="${vv.link}" target="_blank" rel="noopener" title="Lihat bukti">↗</a><span class="status-dot ok">●</span>`:`<span class="status-dot empty" title="kosong">○</span>`}
+          </div>`;
+        }).join("");
+        return `<tr>
+          <td><span class="pill">${u.kode}.${i+1}</span><br><span class="hint">${filledCount}/${labels.length}</span></td>
+          <td>${it.ind}</td>
+          <td>${it.data}</td>
+          <td class="hint">${it.bukti}</td>
+          <td><div class="linkbox"><div class="hint" style="font-weight:800;color:#054d26">${labels.length} bukti <span class="slot-count">${filledCount}/${labels.length}</span></div>${slotHtml}</div></td>
+        </tr>`;
+      }).join("");
+      if(!rows) return;
+      const div=document.createElement("div");
+      div.innerHTML=`<div class="sub"><b>${u.kode} — ${u.tugas}</b></div>
+      <div class="table-wrap"><table>
+      <thead><tr><th style="width:70px">No</th><th>Indikator Kinerja</th><th>Data yang Diharapkan</th><th>Bukti Fisik / Verifikasi</th><th style="width:270px">🔗 Bukti Dukung (per rincian)</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+      body.appendChild(div);
+    });
+    if(!body.children.length) return;
+    box.appendChild(sec);
+  });
+  renderStats();
+}
+function esc(s){return String(s||"").replace(/"/g,"&quot;");}
+function parseSlots(it){
+  let s=it.bukti||"";
+  let part=s; const ci=s.indexOf(":");
+  if(ci>=0) part=s.slice(ci+1);
+  let raw=part.split(/[,;]+/).map(x=>x.trim()).filter(Boolean);
+  raw=raw.map(x=>x.replace(/^[-\u2022\s]+/,"").trim()).filter(x=>x.length>1);
+  if(raw.length===0) raw=["Bukti dukung"];
+  if(raw.length>8) raw=raw.slice(0,8);
+  // rapikan label pendek
+  raw=raw.map(x=>x.length>90?x.slice(0,90)+"…":x);
+  return raw;
+}
+function getSlots(k,it){
+  const labels=parseSlots(it);
+  let arr=store[k];
+  if(!Array.isArray(arr)){
+    if(arr&&(arr.title||arr.link)) arr=[arr];
+    else arr=[];
+  }
+  while(arr.length<labels.length) arr.push({title:labels[arr.length]||"",link:""});
+  // sinkron judul default = label bila kosong
+  arr=arr.map((o,idx)=>({title:o.title||labels[idx]||"",link:o.link||""}));
+  return {labels,arr};
+}
+function saveSlot(k,j){
+  const it=findItem(k); const slots=getSlots(k,it);
+  const l=document.getElementById("l_"+k+"__"+j).value.trim();
+  if(l && !/^https?:\/\//i.test(l)){ alert("Link harus diawali http:// atau https://"); return; }
+  slots.arr[j].link=l;
+  // judul = label bukti (tetap), agar CSV rapi
+  slots.arr[j].title=slots.labels[j]||"";
+  store[k]=slots.arr;
+  saveStore(); render();
+}
+function saveRow(k){ const it=findItem(k); const s=getSlots(k,it); if(s.labels.length>0) saveSlot(k,0); }
+function findItem(k){
+  for(const d of DATA) for(const u of d.unsur) for(let i=0;i<u.items.length;i++) if(keyFor(u.kode,i)===k) return u.items[i];
+  return {bukti:""};
+}
+function totals(){
+  let total=0, filled=0;
+  DATA.forEach(d=>d.unsur.forEach(u=>u.items.forEach((it,i)=>{
+    const k=keyFor(u.kode,i); const s=getSlots(k,it);
+    total+=s.labels.length;
+    filled+=s.arr.filter(x=>x&&x.link).length;
+  })));
+  return {total,filled};
+}
+function renderStats(){
+  const {total,filled}=totals();
+  document.getElementById("st_total").textContent=total;
+  document.getElementById("st_filled").textContent=filled;
+  document.getElementById("st_empty").textContent=total-filled;
+  const pct=total?Math.round(filled/total*100):0;
+  document.getElementById("st_pct").textContent=pct+"%";
+  document.getElementById("st_bar").style.width=pct+"%";
+}
+function handleDownload(sel){
+  if(sel.value==="csv") exportCSV();
+  else if(sel.value==="json") exportJSON();
+  sel.value="";
+}
+function exportJSON(){
+  const payload={identitas:getIdent(), bukti:store, exportedAt:new Date().toISOString()};
+  dl("pkkm-bukti-dukung.json", JSON.stringify(payload,null,2), "application/json");
+}
+function exportCSV(){
+  const rows=[["Komponen","Kode Unsur","Tugas Utama","No","Indikator","Data Diharapkan","Bukti Fisik","Bukti ke-","Nama Bukti Diminta","Link Bukti Dukung"]];
+  DATA.forEach(d=>d.unsur.forEach(u=>u.items.forEach((it,i)=>{
+    const k=keyFor(u.kode,i); const s=getSlots(k,it);
+    s.labels.forEach((lab,j)=>{
+      const vv=s.arr[j]||{};
+      rows.push([d.kompTitle,u.kode,u.tugas,`${u.kode}.${i+1}`,it.ind,it.data,it.bukti,(j+1)+"/"+s.labels.length,lab,vv.link||""]);
+    });
+  })));
+  const csv=rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
+  dl("pkkm-bukti-dukung.csv","\ufeff"+csv,"text/csv");
+}
+function dl(name, text, mime){
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([text],{type:mime})); a.download=name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+}
+function resetAll(){ if(confirm("Hapus semua link bukti dukung yang tersimpan?")){ store={}; saveStore(); render(); } }
+function getIdent(){ return {madrasah:"MTs Fathul Jannah", kamad:"Radina, S.Pd", tahun:"2026", pengawas:"Jumikun, M.Pd"}; }
+function setIdent(o){}
+document.getElementById("q").addEventListener("input",render);
+document.getElementById("filterKomponen").addEventListener("change",render);
+document.getElementById("filterStatus").addEventListener("change",render);
+document.getElementById("importFile").addEventListener("change",e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader(); r.onload=()=>{ try{ const j=JSON.parse(r.result); store=j.bukti||j||{}; if(j.identitas) setIdent(j.identitas); saveStore(); render(); alert("Import berhasil!"); }catch(err){ alert("File JSON tidak valid"); } }; r.readAsText(f);
+});
+setIdent(ident); render();
+</script>
+<style>.hide{display:none}</style>
+<script>window.__CF$cv$params={r:'a5bf2faedacff912',t:'MTc5NDkyMzIzNQ==',u:'01a1e9c30c467037889b7970e444811b',ut:'eS2L8MjUVjVOSYzYX7WsU4oTWGrelx08dzDhJI836Ys-1794923236-1.2.1.1-w1fWdP07NcNX7PB0Zw9jopUUv.fKsxx.0eeR9aAMG4sFcdS9mJwg5WaQdVne_sAIqxptzhOJEBX9njTsBcbTIWeN3FHBPlv5.CLV8qOqBMQ',i:60};(function(){if(!document.body)return;var l=window.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a5bf2faedacff912',s=document.createElement('script');s.src=o?new URL(u,o).href:u;document.head.appendChild(s);})();</script></body>
+</html>
